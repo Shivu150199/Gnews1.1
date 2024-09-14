@@ -5,8 +5,15 @@ import { NewsContext } from "../contextApi/NewContext";
 import FilterDrawer from "./FilterDrawer";
 
 const Dashboard = () => {
-    const { page, totalPages, handleSort, setPage, nextPage, prevPage } =
-        useContext(NewsContext);
+    const {
+        page,
+        totalPages,
+        handleSort,
+        setPage,
+        nextPage,
+        prevPage,
+        loading,
+    } = useContext(NewsContext);
     return (
         <div className="flex-1 h-[91vh] w-[100%] overflow-auto relative ">
             <div className="flex items-center md:justify-between justify-end p-4 border-b-[1px] sticky top-0 bg-white">
@@ -68,23 +75,24 @@ const Dashboard = () => {
             </div>
 
             <NewsCard />
-
-            <div className="hidden md:flex items-center sticky bottom-0 bg-white p-2 shadow-md justify-end">
-                <div className="join grid grid-cols-2">
-                    <button
-                        className="join-item btn btn-outline"
-                        onClick={prevPage}
-                    >
-                        Previous page
-                    </button>
-                    <button
-                        className="join-item btn btn-primary"
-                        onClick={nextPage}
-                    >
-                        Next
-                    </button>
+            {!loading && (
+                <div className="hidden md:flex items-center sticky bottom-0 bg-white p-2 shadow-md justify-end">
+                    <div className="join grid grid-cols-2">
+                        <button
+                            className="join-item btn btn-outline"
+                            onClick={prevPage}
+                        >
+                            Previous page
+                        </button>
+                        <button
+                            className="join-item btn btn-primary"
+                            onClick={nextPage}
+                        >
+                            Next
+                        </button>
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 };
