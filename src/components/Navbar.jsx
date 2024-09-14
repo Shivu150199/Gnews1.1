@@ -5,8 +5,8 @@ const Navbar = () => {
         <div className="navbar  shadow-md sticky top-0 bg-slate-50 px-4">
             <div className="flex-1">
                 <a className="font-bold text-xl">
-                    <span>G News</span>
-                    <span className="text-primary">App</span>{" "}
+                    <span>ACO</span>
+                    <span className="text-primary">News</span>{" "}
                 </a>
             </div>
             <div className="flex-none">
